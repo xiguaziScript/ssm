@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.exam.ssm.dao.StudentsDao" >
+    <resultMap id="BaseResultMap" type="com.exam.ssm.model.Students" >
+        <id column="SID" jdbcType="INTEGER" property="sid" />
+        <result column="NAME" jdbcType="VARCHAR" property="name" />
+        <result column="SEX" jdbcType="VARCHAR" property="sex" />
+        <result column="GRADE" jdbcType="VARCHAR" property="grade" />
+        <result column="MAJOR" jdbcType="VARCHAR" property="major" />
+        <result column="CLASS" jdbcType="VARCHAR" property="classinfo" />
+        <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+        <result column="TEL" jdbcType="VARCHAR" property="tel" />
+        <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    </resultMap>
+
+    <select id="getStudents" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+         *
+        from STUDENTS
+        where sid= #{sid,jdbcType=INTEGER}
+
+    </select>
+
+    <select id="studentsLogin"  resultMap="BaseResultMap">
+
+        select
+        SID, NAME, SEX, GRADE, MAJOR, CLASS, ID_CARD, TEL, PASSWORD
+        from STUDENTS
+        where
+           SID = #{sid,jdbcType=INTEGER}
+        and
+           PASSWORD = #{password,jdbcType=VARCHAR}
+
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

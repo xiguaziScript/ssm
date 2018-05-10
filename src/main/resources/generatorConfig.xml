@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <context id="context">
+        <!-- 是否生成注释 -->
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/EXAM_DB"
+                        userId="root" password="root" />
+
+        <!-- 生成的包名和工程名 -->
+        <javaModelGenerator targetPackage="com.exam.ssm.model"
+                            targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="mapping"
+                         targetProject="src/main/resources" />
+        <javaClientGenerator targetPackage="com.exam.ssm.dao"
+                             targetProject="src/main/java" type="XMLMAPPER" />
+
+        <!-- 数据库表 -->
+
+        <table  tableName="gradeclass" domainObjectName="Gradeclass"  enableCountByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                enableUpdateByExample="false">
+            <!-- 设置别名 -->
+
+            <columnOverride column="TID" property="tid" />
+
+        </table>
+
+    </context>
+</generatorConfiguration>
